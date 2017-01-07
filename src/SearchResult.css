@@ -1,0 +1,17 @@
+.loadingGif {
+	margin: auto;
+}
+.display-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.single-container {
+	width: 300px;
+}
+.image {
+	width: 300px;
+	height: 100px;
+	border: 1px solid grey;
+}

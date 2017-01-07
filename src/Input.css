@@ -1,0 +1,19 @@
+.input-container {
+	display: flex;
+	flex: 5;
+}
+.input-box {
+	border-radius: 10px;
+	margin-right: 10px;
+	border-style: ridge;
+	background: #F5FBFE;
+}
+.button {
+	background: white;
+	border-radius: 10px;
+	color: #979Eb3;
+	border-style: solid;
+}
+*:focus {
+	outline: none;
+}

@@ -1,0 +1,7 @@
+.App {
+    font-family: 'Lato', sans-serif;
+    color: #979Eb3;
+}
+.recent-results {
+	display: flex;
+}
