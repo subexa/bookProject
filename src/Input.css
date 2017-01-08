@@ -3,12 +3,17 @@
 	flex: 5;
 }
 .input-box {
+	width: 100px;
+	height: 15px;
+	padding-left: 10px;
 	border-radius: 10px;
 	margin-right: 10px;
 	border-style: ridge;
 	background: #F5FBFE;
 }
 .button {
+	width: 55px;
+	height: 20px;
 	background: white;
 	border-radius: 10px;
 	color: #979Eb3;
@@ -16,4 +21,11 @@
 }
 *:focus {
 	outline: none;
+}
+.button:hover {
+	background: #F5FBFE;
+}
+.button:active {
+	width: 52px;
+	height: 20px;
 }
