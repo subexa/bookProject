@@ -11,10 +11,16 @@
 	flex-wrap: wrap;
 }
 .single-container {
-	width: 250px;
+	padding: 30px;
+	width: 180px;
 }
 .image {
-	width: 250px;
-	height: 100px;
+	width: 180px;
+	height: 268px;
 	border: 1px solid grey;
+	background: transparent url("../public/loading.gif") center no-repeat;
+}
+.display-title {
+	display: flex;
+	justify-content: space-between;
 }

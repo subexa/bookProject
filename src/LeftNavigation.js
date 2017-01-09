@@ -6,7 +6,12 @@ class LeftNavigation extends Component {
 		return(
 			<div className="recent">
 				<div>RECENT SEARCHES </div>
-				<div>Romance </div>
+				<div>{this.props.recentSearchList.map((item,index) => 
+						<div key={index} className="recent-searches" onClick={() => this.props.recentResultClick(item)}>
+							{item}
+						</div>
+				)}
+				</div>
 			</div>
 		);
 	}

@@ -3,27 +3,42 @@ import './SearchResult.css';
 
 class SearchResult extends Component {
 	sliceText = (text) => {
-		if (text.length > 30) {
-			return text.slice(0,30) + "...";
+		if (text.length > 15) {
+			return text.slice(0,15) + "...";
 		} else {
 			return text;
 		}
 	}
 
+	getImageURL = coverEditionKey => {
+		const imageSource = 'http://covers.openlibrary.org/b/olid/';
+		if (coverEditionKey) {
+			return imageSource + coverEditionKey + '-M.jpg'
+		}
+		return 'http://placehold.it/180x268?text=No%20Image%20Found'
+	}
+
 	render() {
 		console.log(this.props.myData);
-		let loading = this.props.loadingImage;
+		const loading = this.props.loadingImage;
 		console.log(loading);
 		if (loading === true) {
 			return <img src={require("../public/loading.gif")} className="loadingGif" />
 		}
+		
 		return(
 			<div className="display-container">
 				{this.props.myData.map((item,index) => 
 					<div key={index} className="single-container">
-						<img className="image" />
+						<img className="image" src={this.getImageURL(item.cover_edition_key)}
+						/>
 						<div className="description">
-							<div className="display-title">{this.sliceText(item.title)}</div>
+							<div className="display-title">
+								<div>{this.sliceText(item.title)}</div>
+								<div>
+									<img src={require("../public/twoDots.png")} className="twoDots" />
+								</div>
+							</div>
 							<div className="display-author-name">{this.sliceText(item.author_name[0])}</div>
 						</div>
 					</div>

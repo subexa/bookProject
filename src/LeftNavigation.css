@@ -7,3 +7,12 @@
 	flex-direction: column;
 	padding-top: 20px;
 }
+.recent-searches {
+	text-align: left;
+	padding-left: 50px;
+	line-height: 2em;
+}
+.recent-searches:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
