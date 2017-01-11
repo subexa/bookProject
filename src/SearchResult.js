@@ -19,9 +19,7 @@ class SearchResult extends Component {
 	}
 
 	render() {
-		console.log(this.props.myData);
 		const loading = this.props.loadingImage;
-		console.log(loading);
 		if (loading === true) {
 			return <img src={require("../public/loading.gif")} className="loadingGif" />
 		}
@@ -39,7 +37,7 @@ class SearchResult extends Component {
 									<img src={require("../public/twoDots.png")} className="twoDots" />
 								</div>
 							</div>
-							<div className="display-author-name">{this.sliceText(item.author_name[0])}</div>
+							<div className="display-author-name">{item.author_name ? this.sliceText(item.author_name[0]) : "aakash"}</div>
 						</div>
 					</div>
 				)}

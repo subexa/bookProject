@@ -13,6 +13,8 @@
 	line-height: 2em;
 }
 .recent-searches:hover {
+	color: green;
+	font-weight: bold;
 	text-decoration: underline;
 	cursor: pointer;
 }

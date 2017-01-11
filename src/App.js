@@ -27,10 +27,27 @@ class App extends Component {
     }, this.fetchData)
   }
 
+  setToLocalStorage = (recentSearchList) => {
+    localStorage.setItem('searchList',JSON.stringify(recentSearchList))
+  }
+
+  componentDidMount = () => {
+    const searchList= JSON.parse(localStorage.getItem('searchList'));
+    if (searchList === null) {
+      this.setState({
+        recentSearchList: this.state.recentSearchList
+      })
+    } else {
+      this.setState({
+        recentSearchList: searchList
+      })
+    }
+  } 
+
   searchClick = () => {
     this.setState({
       recentSearchList: this.state.recentSearchList.concat(this.state.inputValue),
-    });
+    },() => this.setToLocalStorage(this.state.recentSearchList));
     this.fetchData();
   }
 
@@ -53,7 +70,7 @@ class App extends Component {
       <div className="App">
         <Header setInputValue={this.setInputValue} buttonClick={this.searchClick} />
         <div className="recent-results">
-          <LeftNavigation recentSearchList={this.state.recentSearchList} recentResultClick={this.recentResultClick} />
+          <LeftNavigation recentSearchList={this.state.recentSearchList} recentResultClick={this.recentResultClick} searchList={this.searchList} />
           <SearchResult myData={this.state.myData} loadingImage={this.state.loadingImage} />
         </div>
       </div>
