@@ -12,23 +12,8 @@ class App extends Component {
       myData: [],
       loadingImage: false,
       recentSearchList: [],
+      addBook: false
     }
-  }
-
-  setInputValue = (e) => {
-    this.setState({
-      inputValue: e.target.value
-    })
-  }
-
-  recentResultClick = (book) => {
-    this.setState({
-      inputValue: book
-    }, this.fetchData)
-  }
-
-  setToLocalStorage = (recentSearchList) => {
-    localStorage.setItem('searchList',JSON.stringify(recentSearchList))
   }
 
   componentDidMount = () => {
@@ -42,13 +27,36 @@ class App extends Component {
         recentSearchList: searchList
       })
     }
+  }
+
+  setInputValue = (e) => {
+    this.setState({
+      inputValue: e.target.value
+    })
+  }
+
+  setToLocalStorage = (recentSearchList) => {
+    localStorage.setItem('searchList',JSON.stringify(recentSearchList))
   } 
+
+  addBookClickHandler = () => {
+    this.setState({
+      addBook: true
+    })
+    setTimeout(() => this.setState({addBook: false}), 2000)
+  }
 
   searchClick = () => {
     this.setState({
       recentSearchList: this.state.recentSearchList.concat(this.state.inputValue),
     },() => this.setToLocalStorage(this.state.recentSearchList));
     this.fetchData();
+  }
+
+  recentResultClick = (book) => {
+    this.setState({
+      inputValue: book
+    }, this.fetchData)
   }
 
   fetchData = () => {
@@ -71,7 +79,11 @@ class App extends Component {
         <Header setInputValue={this.setInputValue} buttonClick={this.searchClick} />
         <div className="recent-results">
           <LeftNavigation recentSearchList={this.state.recentSearchList} recentResultClick={this.recentResultClick} searchList={this.searchList} />
-          <SearchResult myData={this.state.myData} loadingImage={this.state.loadingImage} />
+          <SearchResult myData={this.state.myData} loadingImage={this.state.loadingImage} addBookClickHandler={this.addBookClickHandler} />
+        <div className="bottom-book-added">
+          {(this.state.addBook === true) ? "Book Added To Library" : null}
+          {console.log(this.state.addBook)}
+        </div>
         </div>
       </div>
     );

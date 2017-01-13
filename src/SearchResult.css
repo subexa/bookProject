@@ -2,13 +2,14 @@
 	margin: auto;
 }
 .display-container {
-	padding-top: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
+}
+.my-books {
+	padding-left: 50px;
+	padding-top: 10px;
 }
 .single-container {
 	margin: 30px;
