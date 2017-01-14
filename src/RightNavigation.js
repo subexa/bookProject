@@ -8,7 +8,7 @@ class RightNavigation extends Component {
 				<div className="aqua-circle"></div>
 				<div>
 					<div>Nabeen Khadka</div>
-					<div className="no-of-books">10 books</div>
+					<div className="no-of-books"></div>
 				</div>
 			</div>
 		);

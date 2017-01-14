@@ -24,26 +24,25 @@ class SearchResult extends Component {
 			return <img src={require("../public/loading.gif")} className="loadingGif" />
 		}
 
+		const className = (this.props.myBooksClicked === true) ? "my-book-class" : "single-container"
+
 		return(
-			<div>
-				<div className="my-books">MY BOOKS </div>
-				<div className="display-container">
-					{this.props.myData.map((item,index) => 
-						<div key={index} className="single-container" onClick={this.props.addBookClickHandler}>
-							<img className="image" src={this.getImageURL(item.cover_edition_key)}
-							/>
-							<div className="description">
-								<div className="display-title">
-									<div>{this.sliceText(item.title)}</div>
-									<div>
-										<img src={require("../public/twoDots.png")} className="twoDots" />
-									</div>
+			<div className="display-container">
+				{this.props.myData.map((item,index) => 
+					<div key={index} className={className} onClick={() => this.props.addBookClickHandler(item)}>
+						<img className="image" src={this.getImageURL(item.cover_edition_key)}
+						/>
+						<div className="description">
+							<div className="display-title">
+								<div>{this.sliceText(item.title)}</div>
+								<div>
+									<img src={require("../public/twoDots.png")} className="twoDots" />
 								</div>
-								<div className="display-author-name">{item.author_name ? this.sliceText(item.author_name[0]) : "aakash"}</div>
 							</div>
+							<div className="display-author-name">{item.author_name ? this.sliceText(item.author_name[0]) : "aakash"}</div>
 						</div>
-					)}
-				</div>
+					</div>
+				)}
 			</div>
 		);
 	}

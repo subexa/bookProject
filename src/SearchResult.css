@@ -6,13 +6,10 @@
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
-}
-.my-books {
-	padding-left: 50px;
-	padding-top: 10px;
+	padding-top: 30px;
 }
 .single-container {
-	margin: 30px;
+	margin: 20px 30px;
 	width: 180px;
 	position: relative;
 }
@@ -43,7 +40,9 @@
 .single-container:hover:after {
   opacity: 1;
 }
-
 .single-container:active:after {
   opacity: 0.8;
+}
+.my-book-class {
+	padding: 0px 50px;
 }

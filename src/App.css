@@ -4,6 +4,7 @@
 }
 .recent-results {
 	display: flex;
+	position: relative;
 }
 .bottom-book-added {
 	background: #BFEC91;   
@@ -11,4 +12,14 @@
     right: 0;
     bottom: 0;
     width: 100px;
+}
+.my-books {
+	position: absolute;
+	left: 250px;
+	top: 10px;
+}
+.my-books:hover {
+	color: green;
+	text-decoration: underline;
+	cursor: pointer;
 }
